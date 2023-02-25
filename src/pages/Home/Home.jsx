@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import MovieList from 'components/MovieList/MovieList';
-// import Notification from 'components/Notification/Notification';
 import { toast } from 'react-toastify';
 import { Container, Title } from './Home.styled';
+import Loader from 'components/Loader/Loader';
 import * as API from 'services/api';
 
 
@@ -25,8 +25,10 @@ const Home = () => {
   return (
     <>
         <Container>
-        {movies &&<Title>Trending today</Title>}
-        {movies && <MovieList movies={movies} />}
+        {movies && <Title>Trending today</Title>}
+         <Suspense fallback={<Loader />}>
+          {movies && <MovieList movies={movies} />}
+          </Suspense>
         </Container>
     
     </>

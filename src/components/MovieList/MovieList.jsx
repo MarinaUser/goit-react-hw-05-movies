@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import MovieItem from './MovieItem/MovieItem';
 import { Gallery } from './MovieList.styled';
 
+
+
 const MovieList = ({ movies }) => {
   return (
     <Gallery>

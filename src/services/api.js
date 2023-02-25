@@ -58,3 +58,6 @@ export async function getMoviesQuery(query) {
   // console.log(results);
   return results;
 }
+
+export const baseUrl = 'https://image.tmdb.org/t/p/w500';
+export const defaultUrl ='https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png';

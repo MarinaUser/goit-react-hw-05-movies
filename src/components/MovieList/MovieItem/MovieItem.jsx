@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 
-import { StyledLink, Item, Image, Info, Title } from './MovieItem.styled';
+
+import { StyledLink, Item, Image, Info, Title} from './MovieItem.styled';
 
 const MovieItem = ({ id, title, src, vote }) => {
   const location = useLocation();
@@ -31,5 +32,5 @@ MovieItem.propTypes = {
   id: PropTypes.number.isRequired,
   src: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  vote: PropTypes.number.isRequired,
+
 };

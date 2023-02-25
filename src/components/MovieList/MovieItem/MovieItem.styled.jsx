@@ -47,3 +47,4 @@ export const Title = styled.p`
   font-weight: 700;
 `;
 
+
