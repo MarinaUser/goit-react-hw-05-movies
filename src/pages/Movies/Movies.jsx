@@ -16,7 +16,7 @@ export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  
 
   const userQuery = searchParams.get('query') ?? '';
 
@@ -27,7 +27,7 @@ export const Movies = () => {
       const fetchData = async query => {
     try {
       setIsLoading(true);
-      setError(null);
+     
       const response = await API.getMoviesQuery(query.toLowerCase());
       
       if (response.length === 0) {
@@ -38,10 +38,10 @@ export const Movies = () => {
 
       setMovies(response);
     } catch {
-        const message = toast.error(
+         toast.error(
           'Oops, something went wrong ...'
         );
-      setError(message);
+     
     } finally {
       setIsLoading(false);
     }
@@ -57,10 +57,10 @@ export const Movies = () => {
       setQuery(newQuery);
     }
       if (query.trim() === '') {
-        const message = toast.warn(
+        toast.warn(
           'Field cannot be empty!'
         );
-      setError(message);
+     ;
     }
   };
 
