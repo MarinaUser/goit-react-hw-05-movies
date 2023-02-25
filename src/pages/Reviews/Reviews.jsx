@@ -13,19 +13,23 @@ import {
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [reviewLoading, setReviewLoading] = useState(false);
-  const [error, setError] = useState(null);
+ 
 
   const { movieId } = useParams();
 
     useEffect(() => {
-      const fetchData = async id => {
+      
+    fetchData(movieId);
+  }, [movieId]);
+
+const fetchData = async id => {
     try {
       const response = await API.getMovieReview(id);
       setReviews(response);
       setReviewLoading(true);
     } catch {
       // const message = toast.error('Oops, something went wrong ...');
-      setError(toast.error('Oops, something went wrong ...'));
+      toast.error('Oops, something went wrong ...');
     }
   };
 
@@ -33,10 +37,7 @@ const Reviews = () => {
     const message = toast.warn('We dont have any review for this movie');
     return message;
   }
-    fetchData(movieId);
-  }, [movieId]);
-
-
+  
   return (
     <>
         <ReviewsList>

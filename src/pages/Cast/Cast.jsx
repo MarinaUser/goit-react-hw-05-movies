@@ -16,19 +16,24 @@ import {
 const Cast = () => {
   const [casts, setCasts] = useState([]);
   const [castLoading, setcastLoading] = useState(false);
-  const [error, setError] = useState(null);
+ 
 
   const { movieId } = useParams();
 
     useEffect(() => {
-      const fetchData = async id => {
+      
+
+    fetchData(movieId);
+  }, [movieId]);
+
+  const fetchData = async id => {
     try {
       const response = await API.getMovieCast(id);
       setCasts(response);
       setcastLoading(true);
     } catch {
-      const message = toast.error('Oops, something went wrong ...');
-      setError(message);
+       toast.error('Oops, something went wrong ...');
+      
     }
   };
 
@@ -36,10 +41,6 @@ const Cast = () => {
     const message = toast.warn('We dont have any information about cast of this movie');
     return message ;
   }
-
-    fetchData(movieId);
-  }, [movieId]);
-
   
   return (
     <>
