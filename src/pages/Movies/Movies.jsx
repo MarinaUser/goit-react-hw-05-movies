@@ -49,21 +49,13 @@ export const Movies = () => {
     fetchData(userQuery);
   }, [userQuery]);
 
-  
 
   const handleSearchbarSubmit = newQuery => {
     if (query.toLowerCase() !== newQuery.toLowerCase()) {
       setSearchParams({ query: newQuery });
       setQuery(newQuery);
     }
-      if (query.trim() === '') {
-        toast.warn(
-          'Field cannot be empty!'
-        );
-     ;
-    }
   };
-
 
 
   return (

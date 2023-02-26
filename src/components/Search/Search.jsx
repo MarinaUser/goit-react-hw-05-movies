@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FcSearch } from 'react-icons/fc';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 import {
   Searchbox,
@@ -16,11 +17,17 @@ const Search = ({ onSubmit }) => {
     e.preventDefault();
     onSubmit(query);
     setQuery('');
+
+    if (query.trim()=== '') {
+        toast.warn(
+          'Field cannot be empty!');
+    };
   };
 
   const handlSearchChange = e => {
     const { value } = e.target;
     setQuery(value.trim());
+    
   };
   return (
     <Searchbox>
